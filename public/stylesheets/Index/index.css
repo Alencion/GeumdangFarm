@@ -1,0 +1,103 @@
+.main{}
+#content{
+    min-width: 1050px;
+    padding-bottom: 170px;
+}
+/*Main photo slider*/
+.main-photoSlider-container{
+    width: 100%;
+    min-width: 1060px;
+    height: 370px;
+    overflow: hidden;
+    position: relative;
+}
+.main-photoSlider-wrapper{
+    /*position: relative;*/
+    /*width: 2000px;*/
+    /*left: 50%;*/
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    /*margin-left: -1000px;*/
+}
+.main-photoSlider-mover{}
+.main-photoSlider-item{}
+.main-photoSlider-item a img{
+    width: 100%;
+}
+.main-section{
+    padding: 40px 0;
+}
+.main-section-header{
+    padding: 10px 0;
+}
+.main-section-bg-gray{
+    background-color: #f6f7f7;
+}
+/*Products section*/
+/*Main products slider*/
+.main-products-wrapper{
+    width: 750px;
+    margin: 0 auto;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+}
+.main-products-mover{
+    margin-top: 20px;
+    width: 10000%;
+    position: absolute;
+    left: 0;
+}
+.main-products-mover-leftBtn, .main-products-mover-rightBtn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    bottom: 0;
+    margin: auto;
+    height: 75%;
+    width: 35px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999em;
+    z-index: 10;
+}
+.main-products-mover-leftBtn{
+    left: 10%;
+    background-image: url("/images/icon/chevron-left-solid.svg");
+}
+.main-products-mover-rightBtn{
+    right: 10%;
+    background-image: url("/images/icon/chevron-right-solid.svg");
+}
+.main-products-item{
+    margin: 0 25px;
+    float: left;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+}
+.main-products-figure{
+    width: 100%;
+}
+.main-products-figure img{
+    width: 100%;
+    display: block;
+}
+/*Farm Info section*/
+.main-info-section-header h2{
+    display: inline-block;
+    margin: 15px 10px 0;
+}
+.main-info-section-header .green{
+    color: #90b756;
+}
+.main-info-section-content{}
+.main-info-figure{}
+.main-info-figure img{}
+.main-info-section-content p {
+    text-align: center;
+    font-size: 20px;
+
+}

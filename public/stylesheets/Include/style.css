@@ -1,0 +1,43 @@
+*, *:after, *:before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+h1{
+  font-size: 2.5rem;
+}
+h2{
+  font-size: 2rem;
+}
+h3{
+  font-size: 1.5rem;
+}
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+}
+div, th, td, li, dt, dd, p {
+  word-break: break-all;
+}
+button{
+  outline: none;
+}
+dt, dd{
+  display: inline;
+}
+img, video, canvas {
+  max-width: 100%;
+}
+.layout-wrapper{
+  width: 1050px;
+  position: relative;
+  margin: 0 auto;
+}

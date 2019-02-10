@@ -1,0 +1,50 @@
+.footer-wrapper{}
+.footer{
+    font-family: 'Noto Sans', 'Noto Sans kr' ;
+}
+#customerService, #footerInfo{
+    overflow: hidden;
+    padding: 30px 10px;
+}
+#customerService h2,#footerInfo h2{
+    font-weight: 500;
+    font-size: 25px;
+    margin: 0 0 10px;
+    color: #1b4b36;
+}
+#customerService{
+    border-top: 1px solid #6ba365;
+    border-bottom: 1px solid #6ba365;
+}
+#customerService .call, #customerService .qna{
+    float: left;
+    width: 500px;
+}
+#customerService .call h3,#customerService .qna h3{
+    display: block;
+    padding-bottom: 10px;
+}
+#customerService .call h3 span, #customerService .qna h3 a{
+    font-weight: 600;
+    font-size: 14px;
+    color: #587850;
+}
+#customerService .list, #footerInfo .list{
+    padding-bottom: 5px;
+}
+#customerService .list dt, #footerInfo .list dt{
+    font-weight: 500;
+    font-size: 14px;
+    padding-right: 10px;
+}
+#customerService .list dd,#customerService .desc, #footerInfo .list dd {
+    font-size: 13px;
+    color: #363636;
+}
+#customerService .desc{
+    line-height: 26px;
+}
+#footerInfo .cr p{
+    margin: 15px 0;
+    text-align: center;
+}

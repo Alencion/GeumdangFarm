@@ -1,7 +1,7 @@
-idea/
-
+.idea/
+*.iml
 *.xml
-
+*.log
 node_modules/
 /node_modules/*
 

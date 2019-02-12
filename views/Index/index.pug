@@ -6,36 +6,36 @@ html
 
   body
     include ../Include/header
+    include index-mixin.pug
+
     .main
       #content
         .main-photoSlider-container
           .main-photoSlider-wrapper
             ul.main-photoSlider-mover
-              li.main-photoSlider-item
-                a(href="#")
-                  img(src="/images/index-main-slider-item1.jpg")
+              +photoSlider-item
+
         .main-section
           .layout-wrapper
             .main-section-header
               h2 베스트 상품
             .main-products-wrapper
               ul.main-products-mover
-                li.main-products-item
-                  a(href="#")
-                    .main-products-figure
-                      img(src="")
-                    .main-products-content
-                      p.main-products-name 두릅
-                      p.main-products-price 20000원
+                +product-item('땅두릅', '20,000원')
+
             button.main-products-mover-leftBtn 이전슬라이드
             button.main-products-mover-rightBtn 다음슬라이드
+
         .main-section.main-section-bg-gray
           .layout-wrapper
             .main-info-section-header
-              h2 금당두릅농장
+              h2 금당 땅두릅 농장
               h2.green 소개
             .main-info-section-content
               .main-info-figure
                 img(src="")
-              p 안녕하세요. 금당두릅농장입니다.
+              p 안녕하세요. 금당 땅두릅 농장입니다. <br>
+                | 저희 금당 땅두릅 농장은 유기농이고 신선한 땅두릅을 생산합니다.
+
     include ../Include/footer
+

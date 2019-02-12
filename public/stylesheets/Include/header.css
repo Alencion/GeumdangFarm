@@ -69,6 +69,9 @@
     text-align: center;
     font-size: 2rem;
 }
+#head-logo .head-title a{
+    color: #88B04B;
+}
 /*head-menu-bar*/
 #head-menu-bar-wrapper{
     position: relative;
@@ -96,6 +99,9 @@
 #head-menu-bar-wrapper .head-menu-bar li{
     float: left;
 }
+#head-menu-bar-wrapper .head-menu-bar .sub{
+    position: relative;
+}
 #head-menu-bar-wrapper .head-menu-bar a{
     overflow: hidden;
     float: left;
@@ -117,3 +123,18 @@
     color: #36622b;
 }
 
+#head-menu-bar-wrapper .head-menu-bar .ccsub{
+    display: block;
+    width: 101%;
+    height: 100px;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+}
+#head-menu-bar-wrapper .head-menu-bar .ccsub li{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    float: none;
+}

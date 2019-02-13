@@ -18,7 +18,7 @@ router.get('/notice/inqrNoticeAll', async(req, res, next) => {
     var params = [(page-1)*10, 10];
     var result = null;
 
-    await connect.query(sql, params,function(err, rows, fields) {
+    connect.query(sql, params,async (err, rows, fields) => {
         if (err) throw err;
 
         result = rows;

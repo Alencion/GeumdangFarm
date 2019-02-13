@@ -2,9 +2,48 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
+
+    script.
+        var ajax = {
+            /**
+             * ajax post request를 수행하고 결과 반환
+             */
+            request: function (url, param) {
+                var ret = null;
+
+                jQuery.ajax({
+                    url: url,
+                    data: param,
+                    type: 'get',
+                    dataType: 'json',
+                    async: false,
+                    success: function (data) {
+                        ret = data;
+                    }
+                });
+
+                return ret;
+            }
+        }
+        var pageNumber = #{pagenumber}
+        var vData = ajax.request("./notice/inqrNoticeAll", {page: pageNumber});
+        console.log(vData);
+        // console.log(vData);
+
 
     body
         include ../Include/header
         .main
-            #content
+            #title-section.layout-wrapper
+                h4 공지사항
+            #list-section.layout-wrapper
+                table#list-table(style='width:100%;')
+                    thead
+                        tr
+                            th(style='width:10rem;') No.
+                            th(style='width:50rem;') 제목
+                            th(style='width:10rem;') 등록일자
+
+                    tbody#tableBody
         include ../Include/footer

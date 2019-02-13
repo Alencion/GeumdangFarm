@@ -1,0 +1,12 @@
+mixin photoSlider-item
+    li.main-photoSlider-item
+        a(href="#")
+            img(src="/images/index-main-slider-item1.jpg")
+mixin product-item(productName, productPrice)
+    li.main-products-item
+        a(href="#")
+            .main-products-figure
+                img(src="")
+            .main-products-content
+                p.main-products-name= productName
+                p.main-products-price= productPrice

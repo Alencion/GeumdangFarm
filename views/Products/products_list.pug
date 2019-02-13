@@ -2,9 +2,28 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel='stylesheet', href='/stylesheets/Products/products_list.css')
 
     body
         include ../Include/header
         .main
             #content
+                .page-article
+                    #page-info
+                        h2.title 베스트 상품
+                    #productsList
+                        .list_products
+                            ul.list
+                                li
+                                    .products_item
+                                        .thumb
+                                            a(href="#")
+                                                img(src="")
+                                        a.info(href="#")
+                                            span.name 땅두릅
+                                            span.cost 가격
+                                            span.desc 신선하고 맛좋은 땅두릅
+                                        .tag
+                    #pagination
+
         include ../Include/footer

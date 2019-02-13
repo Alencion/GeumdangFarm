@@ -1,23 +1,15 @@
-// module.exports = (function() {
-//     return {
-//         host: "34.85.83.92",
-//         user: "farmer",
-//         password: "1234",
-//         database: "mamaFarm"
-//     }
-// })();
 var mysql = require('mysql2');
 
-function createConnection() {
-    var connection = mysql.createConnection({
-        host: "34.85.83.92",
-        user: "farmer",
-        password: "1234",
-        database: "mamaFarm",
-        multipleStatements: true
-    });
+var db = {};
 
-    return connection;
-}
+db.mysql = mysql;
 
-module.exports.createConnecion = createConnection;
+db.connect = db.mysql.createConnection({
+    host: "34.85.83.92",
+    user: "farmer",
+    password: "1234",
+    database: "mamaFarm",
+    multipleStatements: true
+});
+
+module.exports = db;

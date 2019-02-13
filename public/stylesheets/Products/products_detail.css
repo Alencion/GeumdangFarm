@@ -107,11 +107,12 @@
     height: 600px;
 }
 #products-detail-section .products-detail-desc .desc{
-    padding: 20px;
+    padding: 20px 20px 100px;
     font-family: "Noto Sans KR Thin";
     font-weight: 600;
     font-size: 20px;
     word-break: break-word;
+
 }
 
 #products-detail-section .products-section-header h3{

@@ -1,6 +1,7 @@
-.footer-wrapper{}
+.footer-wrapper{
+}
 .footer{
-    font-family: 'Noto Sans', 'Noto Sans kr' ;
+
 }
 #customerService, #footerInfo{
     overflow: hidden;

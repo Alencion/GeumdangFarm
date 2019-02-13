@@ -1,0 +1,18 @@
+mixin products-detail-header(temp)
+    .products-detail-header(id=temp)
+        ul
+            li
+                if(temp =="detail-decs")
+                    a.active(href="#detail-decs") 상품 설명
+                else
+                    a(href="#detail-decs") 상품 설명
+            li
+                if(temp == "review-table")
+                    a.active(href="#review-table") 고객 후기
+                else
+                    a(href="#review-table") 고객 후기
+            li
+                if(temp == "customer-table")
+                    a.active(href="#customer-table") 상품 문의
+                else
+                    a(href="#customer-table") 상품 문의

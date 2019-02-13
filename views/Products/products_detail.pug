@@ -2,9 +2,121 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel="stylesheet", href="/stylesheets/Products/products_detail.css")
 
     body
         include ../Include/header
-        .main
-            #content
+        include products_detail_mixin
+        #content
+            .products_detail
+                #products-summary-wrapper
+                    .products_image
+                        img(src="#")
+                    .products
+                        .products-header
+                            h3.name 땅두릅
+                            p.desc 신선하고 맛좋은 땅두릅
+                        .products-form-table-wrapper
+                            table.products-form-table
+                                tr
+                                    th.products-form-table-heading 판매가
+                                    td.products-form-table-cell 20,000원
+                                tr
+                                    th.products-form-table-heading 판매 단위
+                                    td.products-form-table-cell 1BOX 15개입
+                                tr
+                                    th.products-form-table-heading 중량/용량
+                                    td.products-form-table-cell 150g
+                                tr
+                                    th.products-form-table-heading 배송 구분
+                                    td.products-form-table-cell 택배배송
+                                tr
+                                    th.products-form-table-heading 구매 수량
+                                    td.products-form-table-cell
+                                        button -
+                                        input(value='1' size=2)
+                                        button +
+                        .products-total-price
+                            | 총 상품 가격은 :&nbsp;
+                            span 20,000
+                            |원
+                        .products-btn-wrapper
+                            button.buybtn 구매하기
+                            button.cartbtn 장바구니
+                #products-detail-section
+                    +products-detail-header("detail-decs")
+                    .products-detail-desc
+                        .image
+                            img(src="")
+                        .desc
+                            |Lorem Ipsum is simply dummy text of the printing
+                            |and typesetting industry. Lorem Ipsum has been the
+                            |industry's standard dummy text ever since the 1500s,
+                            |when an unknown printer took a galley of type and
+                            |scrambled it to make a type specimen book. It has
+                            |survived not only five centuries, but also the leap
+                            |into electronic typesetting, remaining essentially
+                            |unchanged. It was popularised in the 1960s with the
+                            |release of Letraset sheets containing Lorem Ipsum passages,
+                            |and more recently with desktop publishing software like Aldus
+                            |PageMaker including versions of Lorem Ipsum.
+                    +products-detail-header("review-table")
+                    .products-review
+                        .products-section-header
+                            h3 고객 후기
+                        .products-section-table-wrapper
+                            table
+                                thead
+                                    tr
+                                        th No.
+                                        th.title 제목
+                                        th 만족도
+                                        th 작성자
+                                        th 등록일
+                                tbody
+                                    tr
+                                        td 1
+                                        td.title
+                                            a(href="#") 땅두릅
+                                        td 5
+                                        td 이정준
+                                        td 2019-02-13
+                                    tr
+                                        td 1
+                                        td.title
+                                            a(href="#") 땅두릅
+                                        td 5
+                                        td 이정준
+                                        td 2019-02-13
+                        .products-section-pagination-wrapper
+
+                    +products-detail-header("customer-table")
+                    .products-customer
+                        .products-section-header
+                            h3 상품 문의
+                        .products-section-table-wrapper
+                            table
+                                thead
+                                    tr
+                                        th No.
+                                        th 문의 유형
+                                        th.title 제목
+                                        th 작성자
+                                        th 등록일
+                                tbody
+                                    tr
+                                        td 1
+                                        td 배송
+                                        td.title
+                                            a(href="#") 땅두릅
+                                        td 이정준
+                                        td 2019-02-13
+                                    tr
+                                        td 1
+                                        td 상품
+                                        td.title
+                                            a(href="#") 땅두릅
+                                        td 이정준
+                                        td 2019-02-13
+                        .products-section-pagination-wrapper
         include ../Include/footer

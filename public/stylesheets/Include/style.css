@@ -8,6 +8,7 @@
 body {
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 h1{
   font-size: 2.5rem;
 }
@@ -20,9 +21,8 @@ h3{
 h4{
   font-size: 1.2rem;
 }
-
 a {
-  color: #00B7FF;
+  color: #587850;
   text-decoration: none;
 }
 ul{
@@ -36,6 +36,12 @@ button{
 }
 dt, dd{
   display: inline;
+}
+td, th{
+  letter-spacing: .8px;
+}
+table{
+  border-collapse: collapse;
 }
 img, video, canvas {
   max-width: 100%;

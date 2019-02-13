@@ -6,6 +6,7 @@ html
 
     body
         include ../Include/header
+        include products_mixin
         .main
             #content
                 .page-article
@@ -14,16 +15,13 @@ html
                     #productsList
                         .list_products
                             ul.list
-                                li
-                                    .products_item
-                                        .thumb
-                                            a(href="#")
-                                                img(src="")
-                                        a.info(href="#")
-                                            span.name 땅두릅
-                                            span.cost 가격
-                                            span.desc 신선하고 맛좋은 땅두릅
-                                        .tag
+                                +products_item
+                                +products_item
+                                +products_item
+                                +products_item
+                                +products_item
+                                +products_item
+
                     #pagination
 
         include ../Include/footer

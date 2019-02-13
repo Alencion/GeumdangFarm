@@ -1,0 +1,156 @@
+.products_detail{
+    width: 1050px;
+    margin: 0 auto;
+    padding-bottom: 170px;
+}
+/*Products Summary / Products Detail header*/
+#products-summary-wrapper{
+    padding: 45px 20px 55px ;
+    display: flex;
+    display: -webkit-flex;
+}
+#products-summary-wrapper .products_image img{
+    width: 370px;
+    height: 450px;
+}
+#products-summary-wrapper .products{
+    padding-left: 60px ;
+}
+#products-summary-wrapper .products-header{
+    padding-bottom: 15px;
+    font-family: 'Noto Sans', "Noto Sans kr";
+}
+#products-summary-wrapper .products-header .desc{
+    color: #3b3b3b;
+    font-size: 14px;
+    font-family: "Noto Sans KR Thin";
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+#products-summary-wrapper .products-form-table tr{
+    border-top: 1px solid #f5f5f5;
+    display: block;
+}
+#products-summary-wrapper .products-form-table tr:first-child{
+    border-top: none;
+}
+#products-summary-wrapper .products-form-table .products-form-table-heading{
+    width: 150px;
+    height: 60px;
+}
+#products-summary-wrapper .products-form-table .products-form-table-cell{
+    width: 300px;
+}
+#products-summary-wrapper .products-total-price{
+    font-size: 20px;
+    font-family: "Noto Sans", "Noto Sans kr";
+    padding: 10px 0 30px;
+    font-weight: 600;
+    letter-spacing: .8px;
+}
+#products-summary-wrapper .products-btn-wrapper button{
+    width: 50%;
+    height: 45px;
+    border: none;
+    font-size: 16px;
+    font-family: "Noto Sans kr";
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+#products-summary-wrapper .products-btn-wrapper .buybtn{
+    background-color: #88B04B;
+    color: #fff;
+}
+#products-summary-wrapper .products-btn-wrapper .buybtn:hover{
+    background-color: #779a41;
+}
+#products-summary-wrapper .products-btn-wrapper .cartbtn{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #1b4b36;
+}
+#products-summary-wrapper .products-btn-wrapper .cartbtn:hover{
+    background-color: #f5f5f5;
+}
+
+/* Products Detail Description Section */
+#products-detail-section {}
+#products-detail-section .products-detail-header{}
+#products-detail-section .products-detail-header ul{
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+#products-detail-section .products-detail-header li{
+    float: left;
+}
+#products-detail-section .products-detail-header li a{
+    display: inline-block;
+    padding: 15px 40px;
+}
+#products-detail-section .products-detail-header li .active{
+    background-color: #88B04B;
+    color: #fff;
+}
+#products-detail-section .products-detail-desc {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+#products-detail-section .products-detail-desc .image{
+    text-align: center;
+    position: relative;
+}
+#products-detail-section .products-detail-desc .image img{
+    margin: 40px 40px 20px;
+    width: 80%;
+    height: 600px;
+}
+#products-detail-section .products-detail-desc .desc{
+    padding: 20px;
+    font-family: "Noto Sans KR Thin";
+    font-weight: 600;
+    font-size: 20px;
+    word-break: break-word;
+}
+
+#products-detail-section .products-section-header h3{
+    padding: 40px 0;
+}
+#products-detail-section .products-section-table-wrapper{
+    margin: 0 auto;
+    width: 900px;
+    padding-bottom: 100px;
+}
+#products-detail-section .products-section-table-wrapper table{
+    border-top: 2px solid #587850;
+    border-bottom: 1px solid #88B04B;
+}
+#products-detail-section .products-section-table-wrapper thead{
+    border-top: 1px solid #88B04B;
+    border-bottom: 1px solid #88B04B;
+}
+#products-detail-section .products-section-table-wrapper thead tr{
+    color: #6ba365;
+    width: 900px;
+}
+#products-detail-section .products-section-table-wrapper thead th{
+    color: #6ba365;
+    width: 100px;
+    height: 60px;
+}
+#products-detail-section .products-section-table-wrapper thead .title{
+    width: 500px;
+}
+#products-detail-section .products-section-table-wrapper tbody{
+    text-align: center;
+}
+#products-detail-section .products-section-table-wrapper tbody tr{
+    border-bottom: 1px solid #ddd;
+}
+#products-detail-section .products-section-table-wrapper tbody tr:last-child{
+    border-bottom: none;
+}
+#products-detail-section .products-section-table-wrapper tbody td{
+    height: 40px;
+}

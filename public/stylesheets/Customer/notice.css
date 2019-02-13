@@ -1,0 +1,20 @@
+.layout-wrapper {
+    width: 1050px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#title-section {
+    text-align: center;
+    margin: 45px auto 20px auto;
+}
+#title-section h4{
+    font-family: 'Noto Sans';
+    font-weight: 400;
+}
+
+
+#list-section tr{
+    display: block;
+    border-bottom: 1px solid #d2d2d2;
+}

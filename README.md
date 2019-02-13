@@ -38,3 +38,4 @@ Our naming rule and coding convention is as follow.
  
   <h5> How to leave commit title and content? </h5>
    <span>&nbsp;&nbsp;&nbsp; git commit -m "This is a title." -m "This is reasons why I modify the codes and how to implement it."</span>
+

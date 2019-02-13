@@ -2,9 +2,11 @@
 *.iml
 *.xml
 *.log
+
 node_modules/
 /node_modules/*
 
 config/
 /config/*
 
+package.json

@@ -3,8 +3,17 @@ html
     head
         include ../Include/headTag
         link(rel='stylesheet', href='/stylesheets/Products/products_list.css')
+        script(src="/javascripts/Include/script.js")
+        script(src="/javascripts/Include/ajax.js")
+        script(src="/javascripts/Products/products_list.js")
 
     body
+        script.
+            $(document).ready(function(){
+                paging(#{page});
+                getProduct(#{page});
+
+            })
         include ../Include/header
         include products_mixin
         .main
@@ -15,13 +24,16 @@ html
                     #productsList
                         .list_products
                             ul.list
-                                +products_item
-                                +products_item
-                                +products_item
-                                +products_item
-                                +products_item
-                                +products_item
+
 
                     #pagination
+                        button.first-paging-button first
+                        button.prev-paging-button <
+                        ul.paging
+                        button.next-paging-button >
+                        button.last-paging-button last
+
+
+
 
         include ../Include/footer

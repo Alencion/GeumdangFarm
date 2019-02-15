@@ -11,9 +11,7 @@
     overflow: hidden;
     position: relative;
 }
-.main-photoSlider-wrapper{
-
-}
+.main-photoSlider-wrapper{}
 .main-photoSlider-mover{}
 .main-photoSlider-item{}
 .main-photoSlider-item a img{

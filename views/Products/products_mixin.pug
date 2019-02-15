@@ -1,11 +1,11 @@
-mixin products_item
+mixin products_item(title, price, desc)
     li
         .products_item
             .thumb
                 a(href="/products/detail?id=1")
                     img(src="")
             a.info(href="/products/detail?id=1")
-                span.name 땅두릅
-                span.cost 가격
-                span.desc 신선하고 맛좋은 땅두릅
+                span.name #{title}
+                span.cost #{price}
+                span.desc #{desc}
             .tag

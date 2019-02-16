@@ -19,24 +19,8 @@ router.get('/notice', function (req, res, next) {
 router.get('/notice/inqrNoticeAll', (req, res, next) => {
 
     var page = req.query.page;
-<<<<<<< Updated upstream
-    var connect = config.createConnecion();
-    // var sql = query.inqrTotalNotice;
-    // var params = [(page-1)*10, 10];
-    // var result = null;
-
-    // connect.query(sql, params,async (err, rows, fields) => {
-    //     if (err) throw err;
-    //
-    //     result = rows;
-    // });
-
-    console.log("Result : " + result);
-    return result;
-=======
     var connect = config.connect;
-    var sql = query.inqrTotalNotice;
-    var params = [(page-1)*10, 10];
+    var sql    = nineBatis.getQuery('inqrTotalNotice', {start: (page-1)*10, limit: 10});
 
     connect.query(sql, (err, rows, fields) => {
         if (err) next(err);
@@ -45,7 +29,6 @@ router.get('/notice/inqrNoticeAll', (req, res, next) => {
         var result = {'notice' : rows[1]}
         res.send(result);
     });
->>>>>>> Stashed changes
 });
 
 /* Customer Notice NEW Router. */

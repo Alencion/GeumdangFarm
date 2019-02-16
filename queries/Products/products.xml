@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query>
+    <select id="inqrTotalProducts">
+        SET @rownum:=${start};
+        SELECT @rownum:=@rownum+1 ROWNUM, PRDCT.*
+        FROM ITEM_LIST PRDCT
+        ORDER BY REGIST_DATE DESC
+        LIMIT ${offset},${limit}
+    </select>
+    <select id="inqrProductCount">
+        SELECT COUNT(ITEM_ID) AS COUNT
+        FROM ITEM_LIST
+    </select>
+    <select id="inqrProductDetail">
+        SELECT *
+          FROM ITEM_LIST
+        WHERE ITEM_LIST.ITEM_ID = ${item_id}
+    </select>
+</query>

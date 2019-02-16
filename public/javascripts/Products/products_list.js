@@ -2,7 +2,7 @@ var count = null;
 var page = null;
 /*pagination 생성 코드*/
 function paging(param){
-    count = parseInt((ajax.request('/products/paging',param).result[0].COUNT)/10)+1;
+    count = parseInt((ajax.requestGET('/products/paging',param).result[0].COUNT)/10)+1;
     var pageHTML = "";
     for (var index = 1; index <= count; index++){
         pageHTML += "<li><button onclick=\"getProduct("+index+")\" value=\""+index+"\">"+index+"</button></li>"
@@ -11,7 +11,7 @@ function paging(param){
 }
 /* page값에 따른 Products 가져오는 함수 */
 function getProduct(param){
-    var productList = ajax.request('/products/list',param).result;
+    var productList = ajax.requestGET('/products/list',param).result;
     var pageHTML = "";
     $.each(productList, function ( index, value) {
         console.log(value);

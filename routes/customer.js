@@ -1,7 +1,8 @@
 var express    = require('express');
 var router     = express.Router();
 
-nineBatis.loadQuery(path.resolve('./queries'), true);
+var nineBatis  = require('../lib/nineBatis');
+nineBatis.loadQuery(path.resolve('./queries/Customer'), true);
 
 /* Customer Notice List Router. */
 router.get('/notice', function (req, res, next) {
@@ -31,7 +32,29 @@ router.get('/notice/new', function (req, res, next) {
     res.render('Customer/notice_new.pug');
 });
 router.post('/notice/upload', function (req, res, next) {
+    var params = {}
+    params.user    = '관리자';
+    params.title   = req.body.title.trim();
+    params.content = req.body.content.trim();
+    var sql = nineBatis.getQuery('rgstNewNotice', params);
 
+    var rst;
+    var connect = config.connect;
+
+    try {
+        connect.query(sql, function (err, rows){
+            if (err) next(err);
+
+            console.log("Executied Query : " + this.sql);
+            rst = {'result' : true}
+            res.send(rst);
+        });
+    }catch (e) {
+        rst = {'result' : false}
+        res.send(rst);
+    }
+
+    // res.send(rst);
 });
 
 /* Customer QnA List Router. */

@@ -31,7 +31,7 @@ html
 
         // Inquire notice
         function inqrData() {
-            vData = ajax.request("./notice/inqrNoticeAll", {page: pageNumber});
+            vData = ajax.request("/customer/notice/inqrNoticeAll", {page: pageNumber});
         }
 
         function dsplyNotices() {
@@ -43,13 +43,20 @@ html
 
         function dsplyPostRow(body, obj) {
             console.log(obj);
-            body.append(
-                "<tr notice_id=" + obj.NOTICE_ID + ">"
-                    + "<td class=\"td-number cntnt-num\">" + obj.ROWNUM + "</td>"
-                    + "<td class=\"td-title cntnt-title\">"  + obj.NOTICE_TITLE + "</td>"
-                    + "<td class=\"td-date cntnt-date\">" + obj.REGIST_DATE + "</td>"
-               +"</tr>"
+
+            var tr = document.createElement("tr");
+            $(tr).attr("notice_id", obj.NOTICE_ID);
+            $(tr).append(
+                "<td class=\"td-number cntnt-num\">" + obj.ROWNUM + "</td>"
+                + "<td class=\"td-title cntnt-title\">" + obj.NOTICE_TITLE + "</td>"
+                + "<td class=\"td-date cntnt-date\">" + obj.REGIST_DATE + "</td>"
             );
+
+            body.append(tr);
+
+            $(tr).on('click', function(){
+
+            });
         }
 
         var vData;
@@ -64,7 +71,7 @@ html
                 .title-section
                     h4 공지사항
                 .regist-section
-                    a(href="./notice/new") 글쓰기 >
+                    a(href="/customer/notice/new") 글쓰기 >
                 .list-section
                     table#list-table(style='width:100%;')
                         thead

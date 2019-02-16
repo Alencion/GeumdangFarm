@@ -11,7 +11,7 @@ var productsRouter = require('./routes/products');
 var reviewRouter = require('./routes/review');
 
 global.config     = require('./config/db_config');
-global.nineBatis  = require('./lib/nineBatis');
+// global.nineBatis  = require('./lib/nineBatis');
 
 var app = express();
 
@@ -47,7 +47,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var bodyParser = require('body-parser');
+global.bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 

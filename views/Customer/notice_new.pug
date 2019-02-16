@@ -36,7 +36,18 @@ html
                     return false;
                 }
                 else {
-                    var vData = ajax.request("./upload", {title: title, content: data});
+                    var vData  = ajax.request("/customer/notice/upload", {title: title, content: data});
+                    var result = vData.result;
+
+                    if (result == true) {
+                        alert("저장되었습니다.");
+                        window.location.href = '/customer/notice?page=1';
+                    }
+                    else if(result == null || result == false) {
+                        alert('저장에 실패하였습니다.\n잠시 후 다시 시도해 주시기 바랍니다.');
+                        return false;
+                    }
+
                 }
 
             }

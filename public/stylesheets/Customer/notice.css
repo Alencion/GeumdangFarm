@@ -4,14 +4,11 @@
     margin: 0 auto;
 }
 .title-section {
-    margin: 45px auto 20px auto;
-    text-align: center;
+    padding: 45px 0px 0px 15px;
 }
-.title-section h4{
-    display: inline-block;
-    font-family: 'Noto Sans';
-    font-weight: 400;
-    border-bottom: 1.2px solid #36622b;
+.title-section h3{
+    border-left: 5px solid #88B04B;
+    padding-left: 10px;
 }
 .regist-section {
     font-size: 14px;

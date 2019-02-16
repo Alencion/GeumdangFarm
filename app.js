@@ -1,6 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
+global.path    = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -11,6 +11,8 @@ var productsRouter = require('./routes/products');
 var reviewRouter = require('./routes/review');
 var adminRouter = require('./routes/admin');
 
+global.config     = require('./config/db_config');
+// global.nineBatis  = require('./lib/nineBatis');
 
 var app = express();
 
@@ -47,7 +49,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var bodyParser = require('body-parser');
+global.bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 

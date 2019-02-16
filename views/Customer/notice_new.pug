@@ -2,9 +2,91 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
+        script(src="//cdn.ckeditor.com/4.11.2/full/ckeditor.js")
+        script.
+            var ajax = {
+                /**
+                 * ajax post request를 수행하고 결과 반환
+                 */
+                request: function (url, param) {
+                    var ret = null;
 
+                    jQuery.ajax({
+                        url: url,
+                        data: param,
+                        type: 'post',
+                        dataType: 'json',
+                        async: false,
+                        success: function (data) {
+                            console.log(data);
+                            ret = data;
+                        }
+                    });
+
+                    return ret;
+                }
+            }
+
+            function saveNotice() {
+                var title = $.trim($(".title-input").val());
+                var data = CKEDITOR.instances.editor1.getData();
+
+                if(hasEmtpyValue(title, data)) {
+                    return false;
+                }
+                else {
+                    var vData  = ajax.request("/customer/notice/upload", {title: title, content: data});
+                    var result = vData.result;
+
+                    if (result == true) {
+                        alert("저장되었습니다.");
+                        window.location.href = '/customer/notice?page=1';
+                    }
+                    else if(result == null || result == false) {
+                        alert('저장에 실패하였습니다.\n잠시 후 다시 시도해 주시기 바랍니다.');
+                        return false;
+                    }
+
+                }
+
+            }
+
+            function hasEmtpyValue(title, data) {
+                if (title == null || title == '') {
+                    alert("제목을 입력해 주시기 바랍니다.");
+                    return true;
+                }
+                else if (data == null || data == '') {
+                    alert("공지내용을 입력해 주시기 바랍니다.");
+                    return true;
+                }
+                return false;
+            }
+
+            $(document).ready(function () {
+                $(".okBtn").on('click', function() {
+                    saveNotice();
+                });
+            });
     body
         include ../Include/header
         .main
-            #content
+            #editor.layout-wrapper
+                .title-section
+                    h4 새 공지 등록하기
+                .notice-title
+                    table
+                        tbody
+                            tr
+                                th 제목
+                                td
+                                    input(type="text" placeholder="공지사항의 제목을 입력해 주세요." autofocus="").title-input
+                .editor-section
+                    textarea(name="editor1")
+                    script.
+                        CKEDITOR.replace('editor1');
+                .btn-container
+                    button.cancelBtn 취소
+                    button.okBtn 완료
         include ../Include/footer

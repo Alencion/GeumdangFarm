@@ -5,8 +5,7 @@
         SELECT @rownum:=@rownum+1 ROWNUM, PRDCT.*
         FROM ITEM_LIST PRDCT
         ORDER BY REGIST_DATE DESC
-        LIMIT ${offset},<0>limit
-    </0>
+        LIMIT ${offset},${limit}
     </select>
     <select id="inqrProductCount">
         SELECT COUNT(ITEM_ID) AS COUNT

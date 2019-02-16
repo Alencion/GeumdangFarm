@@ -14,22 +14,22 @@ html
                         img(src="#")
                     .products
                         .products-header
-                            h3.name 땅두릅
-                            p.desc 신선하고 맛좋은 땅두릅
+                            h3.name #{ITEM_NAME}
+                            p.desc #{ITEM_DESC}
                         .products-form-table-wrapper
                             table.products-form-table
                                 tr
                                     th.products-form-table-heading 판매가
-                                    td.products-form-table-cell 20,000원
+                                    td.products-form-table-cell #{ITEM_PRICE}
                                 tr
                                     th.products-form-table-heading 판매 단위
-                                    td.products-form-table-cell 1BOX 15개입
+                                    td.products-form-table-cell #{SELL_UNIT}
                                 tr
                                     th.products-form-table-heading 중량/용량
-                                    td.products-form-table-cell 150g
+                                    td.products-form-table-cell #{ITEM_WEIGHT}
                                 tr
                                     th.products-form-table-heading 배송 구분
-                                    td.products-form-table-cell 택배배송
+                                    td.products-form-table-cell #{DELIVER_TYPE}
                                 tr
                                     th.products-form-table-heading 구매 수량
                                     td.products-form-table-cell
@@ -46,8 +46,6 @@ html
                 #products-detail-section
                     +products-detail-header("detail-decs")
                     .products-detail-desc
-                        .image
-                            img(src="")
                         .desc
                             |Lorem Ipsum is simply dummy text of the printing
                             |and typesetting industry. Lorem Ipsum has been the

@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var customerRouter = require('./routes/customer');
 var productsRouter = require('./routes/products');
 var reviewRouter = require('./routes/review');
+var adminRouter = require('./routes/admin');
 
 global.config     = require('./config/db_config');
 // global.nineBatis  = require('./lib/nineBatis');
@@ -30,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/customer', customerRouter);
 app.use('/products', productsRouter);
 app.use('/review', reviewRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

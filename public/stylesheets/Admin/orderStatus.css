@@ -1,0 +1,72 @@
+.main{
+    width: 1200px;
+    margin: 0 auto;
+}
+#content{
+    display: inline-block;
+}
+
+#order-status-wrapper {
+    float: left;
+}
+#order-status-wrapper .order-status{
+    padding: 45px 0 0 15px;
+    width: 900px;
+}
+#order-status-wrapper .order-status-header{}
+#order-status-wrapper .order-status-header h3{
+    border-left: 5px solid #88B04B;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+#order-status-wrapper .order-status-table{
+    border-top: 2px solid #587850;
+    border-bottom: 2px solid #88B04B;
+}
+#order-status-wrapper .order-status-table thead{
+    border-top: 1px solid #88B04B;
+    border-bottom: 1px solid #88B04B;
+}
+#order-status-wrapper .order-status-table .no{
+    width: 50px;
+}
+#order-status-wrapper .order-status-table .image,
+#order-status-wrapper .order-status-table .amount,
+#order-status-wrapper .order-status-table .total-price,
+#order-status-wrapper .order-status-table .deposit{
+    width: 75px;
+}
+#order-status-wrapper .order-status-table .name{
+    width: 200px;
+}
+#order-status-wrapper .order-status-table .cus-name{
+    width: 100px;
+}
+#order-status-wrapper .order-status-table .cus-phone,
+#order-status-wrapper .order-status-table .register-date{
+    width: 120px;
+}
+#order-status-wrapper .order-status-table thead tr{
+    color: #6ba365;
+}
+#order-status-wrapper .order-status-table thead th{
+    color: #6ba365;
+    width: 130px;
+    height: 60px;
+}
+#order-status-wrapper .order-status-table tbody{
+    text-align: center;
+}
+#order-status-wrapper .order-status-table tbody tr{
+    border-bottom: 1px solid #ddd;
+}
+#order-status-wrapper .order-status-table tbody tr:last-child{
+    border-bottom: none;
+}
+#order-status-wrapper .order-status-table tbody td{
+    height: 40px;
+    font-size: 14px;
+}
+#order-status-wrapper .order-status-table tbody .image img  {
+    max-width: 50px;
+}

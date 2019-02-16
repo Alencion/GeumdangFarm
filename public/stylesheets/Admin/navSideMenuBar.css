@@ -1,0 +1,13 @@
+#nav-side-menu-bar-wrapper{
+    float: left;
+}
+#nav-side-menu-bar-wrapper .nav-side-menu-bar{
+    padding: 25px 0 100px 20px;
+    width: 200px;
+    border: 1px solid #ddd;
+    margin: 10px;
+}
+#nav-side-menu-bar-wrapper .nav-side-menu-header{}
+#nav-side-menu-bar-wrapper .nav-side-menu-header h4{
+    padding-bottom: 20px;
+}

@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* Admin OrderStatus Router. */
 router.get('/orderStatus', function (req, res, next) {
-    res.render('orderStatus.pug');
+    res.render('Admin/orderStatus.pug');
 });
 router.post('/orderStatus', function (req, res, next) {
     res.send('Admin OrderStatus Post Page 이다.');
@@ -11,7 +11,7 @@ router.post('/orderStatus', function (req, res, next) {
 
 /* Admin PhotoSlider Router. */
 router.get('/photoSlider', function (req, res, next) {
-    res.render('photoSlider.pug');
+    res.render('Admin/photoSlider.pug');
 });
 router.post('/photoSlider', function (req, res, next) {
     res.send('Admin PhotoSlider Post Page 이다.');
@@ -19,7 +19,7 @@ router.post('/photoSlider', function (req, res, next) {
 
 /* Admin Product Router. */
 router.get('/product', function (req, res, next) {
-    res.render('product.pug');
+    res.render('Admin/product.pug');
 });
 router.post('/product', function (req, res, next) {
     res.send('Admin Product Post Page 이다.');
@@ -27,7 +27,7 @@ router.post('/product', function (req, res, next) {
 
 /* Admin Product New Router. */
 router.get('/product/new', function (req, res, next) {
-    res.render('product_new.pug');
+    res.render('Admin/product_new.pug');
 });
 router.post('/product/new', function (req, res, next) {
     res.send('Admin Product NEW Post Page 이다.');

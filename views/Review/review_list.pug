@@ -2,9 +2,36 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel="stylesheet", href="/stylesheets/Review/review_list.css")
 
     body
         include ../Include/header
         .main
-            #content
+            #content.layout-wrapper
+                #review-wrapper
+                    .review-header
+                        h2 후기
+                    ul.review-card-item-list
+                        li
+                            a(href="#")
+                                .item-wrapper
+                                    .item-hover
+                                        img(src='/images/icon/bag.png')
+                                        p 상품보러가기
+                                    .item-image
+                                        img(src="#")
+                                    .item-desc
+                                        p.title 땅두릅1
+                                        p.desc 신선하고 맛좋은
+                                    .item-satisfaction
+                                        dl
+                                            dt 별점 :&nbsp
+                                            dd 5점
+                                    .customer-review
+                                        span "신선하고 맛이 좋아요."
+                                        span - 글쓴이
+                                    .customer-review
+                                        span "신선하고 맛이 좋아요."
+                                        span  - 글쓴이
+
         include ../Include/footer

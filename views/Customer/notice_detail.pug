@@ -3,6 +3,7 @@ html
     head
         include ../Include/headTag
         link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
+        script(src="/javascripts/Include/ajax.js")
 
     script.
         var ajax = {
@@ -70,6 +71,7 @@ html
         $(document).ready(function () {
             inqrData();
         });
+        
     body
         include ../Include/header
         .main

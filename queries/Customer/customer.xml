@@ -8,7 +8,9 @@
              , NTCE.WRITER
              , NTCE.NOTICE_TITLE
              , NTCE.NOTICE_CONTENT
+             , TOTAL.TOTAL
           FROM NOTICE NTCE
+             , (SELECT COUNT(*) TOTAL FROM NOTICE) TOTAL
          ORDER BY REGIST_DATE DESC
          LIMIT ${limit};
     </select>

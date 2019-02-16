@@ -3,6 +3,7 @@ html
     head
         include ../Include/headTag
         link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
+        script(src="/javascripts/Include/ajax.js")
 
     script.
         var ajax = {
@@ -83,5 +84,12 @@ html
                                 th.table-header.td-date 등록일자
 
                         tbody#tableBody
+
+                #pagination
+                    button.first-paging-button first
+                    button.prev-paging-button <
+                    ul.paging
+                    button.next-paging-button >
+                    button.last-paging-button last
 
         include ../Include/footer

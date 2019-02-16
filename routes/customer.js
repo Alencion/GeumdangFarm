@@ -1,12 +1,7 @@
-var express = require('express');
-var router  = express.Router();
-var config = require('../config/db_config');
-// var query = require('../queries/Customer/customer');
+var express    = require('express');
+var router     = express.Router();
 
-var nineBatis = require('../lib/nineBatis');
-var path      = require('path');
-
-nineBatis.loadQuery(path.resolve('./queries/Customer'), true);
+nineBatis.loadQuery(path.resolve('./queries'), true);
 
 /* Customer Notice List Router. */
 router.get('/notice', function (req, res, next) {
@@ -33,7 +28,6 @@ router.get('/notice/inqrNoticeAll', (req, res, next) => {
 
 /* Customer Notice NEW Router. */
 router.get('/notice/new', function (req, res, next) {
-    console.log(query.inqrTotalNotice);
     res.render('Customer/notice_new.pug');
 });
 router.post('/notice/upload', function (req, res, next) {

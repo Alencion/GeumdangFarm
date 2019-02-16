@@ -30,8 +30,27 @@ html
 
             function saveNotice() {
                 var title = $.trim($(".title-input").val());
-                var data  = CKEDITOR.instances.editor1.getData();
-                var vData = ajax.request("./notice/regist", {title: title, content: data});
+                var data = CKEDITOR.instances.editor1.getData();
+
+                if(hasEmtpyValue(title, data)) {
+                    return false;
+                }
+                else {
+                    var vData = ajax.request("./upload", {title: title, content: data});
+                }
+
+            }
+
+            function hasEmtpyValue(title, data) {
+                if (title == null || title == '') {
+                    alert("제목을 입력해 주시기 바랍니다.");
+                    return true;
+                }
+                else if (data == null || data == '') {
+                    alert("공지내용을 입력해 주시기 바랍니다.");
+                    return true;
+                }
+                return false;
             }
 
             $(document).ready(function () {

@@ -1,6 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
+global.path    = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -10,6 +10,8 @@ var customerRouter = require('./routes/customer');
 var productsRouter = require('./routes/products');
 var reviewRouter = require('./routes/review');
 
+global.config     = require('./config/db_config');
+global.nineBatis  = require('./lib/nineBatis');
 
 var app = express();
 

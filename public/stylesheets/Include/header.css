@@ -54,14 +54,23 @@
     width: 0;
 }
 #userMenu .sub{
-    display: block;
+    display: none;
     position: absolute;
-    left: 0;
+    left: 5px;
     top: 31px;
-    width: 102px;
+    width: 82px;
     padding: 3px 9px;
     border: 1px solid #ddd;
     background-color: #fff;
+}
+#userMenu .mypage:hover .sub{
+    display: block;
+}
+#userMenu .sub li{
+    margin: 5px 0;
+}
+#userMenu .sub li:hover a{
+    text-decoration: underline;
 }
 /*logo*/
 #head-logo .head-title{
@@ -124,7 +133,7 @@
     color: #36622b;
 }
 #head-menu-bar-wrapper .head-menu-bar .ccsub{
-    display: block;
+    display: none;
     width: 101%;
     background-color: #fff;
     position: absolute;
@@ -135,6 +144,9 @@
     border-right: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
     border-left: 1px solid #e5e5e5;
+}
+#head-menu-bar-wrapper .head-menu-bar .sub:hover .ccsub{
+    display: block;
 }
 #head-menu-bar-wrapper .head-menu-bar .ccsub li{
     display: flex;

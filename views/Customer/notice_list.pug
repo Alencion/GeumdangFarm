@@ -55,8 +55,10 @@ html
             body.append(tr);
 
             $(tr).on('click', function(){
-
+                var noticeId = $.trim($(this).attr('notice_id'));
+                window.location.href = "/customer/notice/detail?noticeId=" + noticeId;
             });
+
         }
 
         var vData;

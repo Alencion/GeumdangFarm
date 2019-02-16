@@ -21,10 +21,35 @@ router.get('/notice/inqrNoticeAll', (req, res, next) => {
     connect.query(sql, (err, rows, fields) => {
         if (err) next(err);
 
-        console.log("Result : " + JSON.stringify(rows[1]));
+        console.log("Result : " + JSON.stringify(rows));
         var result = {'notice' : rows[1]}
         res.send(result);
     });
+});
+
+router.get('/notice/detail', function (req, res, next) {
+    res.render('Customer/notice_detail.pug', {
+        noticeId: req.query.noticeId
+    });
+});
+
+router.post('/notice/inqrDetail', function (req, res, next) {
+    var noticeId = req.body.noticeId.trim();
+    var connect = config.connect;
+    var sql      = nineBatis.getQuery('inqrNoticeDetail', {noticeId: noticeId});
+
+    try {
+        connect.query(sql, function (err, rows){
+            if (err) next(err);
+
+            console.log("Result : " + JSON.stringify(rows));
+            var rst = {'result' : true, 'detail' : rows[0]}
+            res.send(rst);
+        });
+    }catch (e) {
+        var rst = {'result' : false}
+        res.send(rst);
+    }
 });
 
 /* Customer Notice NEW Router. */

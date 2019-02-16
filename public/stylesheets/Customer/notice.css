@@ -3,7 +3,6 @@
     position: relative;
     margin: 0 auto;
 }
-
 .title-section {
     margin: 45px auto 20px auto;
     text-align: center;
@@ -14,52 +13,42 @@
     font-weight: 400;
     border-bottom: 1.2px solid #36622b;
 }
-
 .regist-section {
     font-size: 14px;
     float: right;
     margin: 0.5rem 2rem 2rem 2rem;
 }
-
 .list-section {
     margin-bottom: 3rem;
 }
-
 .list-section tr{
     display: block;
     border-bottom: 1px solid #d2d2d2;
 }
-
 .list-section tbody tr {
     padding: 0.5rem;
 }
-
 .list-section tbody tr:hover {
     cursor: pointer;
     background-color: #d2d2d2;
 }
-
 .table-header {
     font-size: 16px;
     font-family: "Noto Sans KR Thin";
 }
-
 .td-number, .td-date {
     width:10rem;
     font-family: "Noto Sans KR Thin";
 }
-
 .td-title {
     width: 50rem;
     font-family: "Noto Sans KR Thin";
 }
-
 .cntnt-num, .cntnt-date {
     font-size: 15px;
     font-family: "Noto Sans KR Thin";
     text-align: center;
 }
-
 .cntnt-title {
     font-size: 15px;
     font-family: "Noto Sans KR Thin";
@@ -124,4 +113,49 @@
 }
 #editor .btn-container .okBtn:hover{
     background-color: #779a41;
+}
+
+/*Notice detail*/
+#notice-detail {
+    padding: 45px 0px 0px 15px;
+}
+#notice-detail .detail-header h3{
+    border-left: 5px solid #88B04B;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+#notice-detail table{
+    width: 100%;
+    border-top: 2px solid #587850;
+    border-bottom: 1px solid #88B04B;
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+}
+#notice-detail table tr{
+    /*color: #6ba365;*/
+    width: 900px;
+}
+#notice-detail table th{
+    color: #6ba365;
+    width: 100px;
+    height: 40px;
+}
+#notice-detail tbody td {
+    height: 40px;
+    /*text-align: center;*/
+}
+#notice-detail .click-total {
+    width: 100%;
+    padding-right: 20px;
+    font-size: 13px;
+    color: slategrey;
+    text-align: right;
+    margin-bottom: 20px;
+}
+#notice-detail .content {
+    height: 500px;
+    /*padding: 5rem 0rem;*/
+    /*border: 1px solid #36622b;*/
+    border-bottom: 2px solid #587850;
+    margin-bottom: 4rem;
 }

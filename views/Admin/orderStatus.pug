@@ -2,9 +2,44 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel='stylesheet', href='/stylesheets/Admin/navSideMenuBar.css')
+        link(rel='stylesheet', href='/stylesheets/Admin/orderStatus.css')
 
     body
         include ../Include/header
         .main
             #content
-        include ../Include/footer
+                include ./nav-side-menu-bar
+                #order-status-wrapper
+                    .order-status
+                        .order-status-header
+                            h3 주문현황 확인하기
+                        table.order-status-table
+                            thead
+                                tr
+                                    th.no No.
+                                    th.image 상품 사진
+                                    th.name 상품명
+                                    th.cus-name 구매자
+                                    th.cus-phone 전화번호
+                                    th.amount 상품 수량
+                                    th.total-price 상품 가격
+                                    th.register-date 주문 일자
+                                    th.deposit 입금 여부
+                            tbody
+                                tr
+                                    td.no 1
+                                    td.image
+                                        img(src="/images/icon/cart.png")
+                                    td.name 땅두릅
+                                    td.cus-name 이정준
+                                    td.cus-phone 010-0000-0000
+                                    td.amount 2
+                                    th.total-price 40,000
+                                    td.register-date 2019-02-16
+                                    td.deposit
+                                        button 미입금
+
+
+
+

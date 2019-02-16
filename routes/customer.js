@@ -16,8 +16,10 @@ router.get('/notice', function (req, res, next) {
     });
 });
 
-router.get('/notice/inqrNoticeAll', async(req, res, next) => {
+router.get('/notice/inqrNoticeAll', (req, res, next) => {
+
     var page = req.query.page;
+<<<<<<< Updated upstream
     var connect = config.createConnecion();
     // var sql = query.inqrTotalNotice;
     // var params = [(page-1)*10, 10];
@@ -31,14 +33,28 @@ router.get('/notice/inqrNoticeAll', async(req, res, next) => {
 
     console.log("Result : " + result);
     return result;
+=======
+    var connect = config.connect;
+    var sql = query.inqrTotalNotice;
+    var params = [(page-1)*10, 10];
+
+    connect.query(sql, (err, rows, fields) => {
+        if (err) next(err);
+
+        console.log("Result : " + JSON.stringify(rows[1]));
+        var result = {'notice' : rows[1]}
+        res.send(result);
+    });
+>>>>>>> Stashed changes
 });
 
 /* Customer Notice NEW Router. */
 router.get('/notice/new', function (req, res, next) {
+    console.log(query.inqrTotalNotice);
     res.render('Customer/notice_new.pug');
 });
-router.post('/notice/new', function (req, res, next) {
-    res.send('Customer Notice NEW Post Page 이다.');
+router.post('/notice/upload', function (req, res, next) {
+
 });
 
 /* Customer QnA List Router. */

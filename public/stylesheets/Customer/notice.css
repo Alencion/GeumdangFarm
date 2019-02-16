@@ -4,17 +4,124 @@
     margin: 0 auto;
 }
 
-#title-section {
-    text-align: center;
+.title-section {
     margin: 45px auto 20px auto;
+    text-align: center;
 }
-#title-section h4{
+.title-section h4{
+    display: inline-block;
     font-family: 'Noto Sans';
     font-weight: 400;
+    border-bottom: 1.2px solid #36622b;
+}
+
+.regist-section {
+    font-size: 14px;
+    float: right;
+    margin: 0.5rem 2rem 2rem 2rem;
+}
+
+.list-section {
+    margin-bottom: 3rem;
+}
+
+.list-section tr{
+    display: block;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.list-section tbody tr {
+    padding: 0.5rem;
+}
+
+.list-section tbody tr:hover {
+    cursor: pointer;
+    background-color: #d2d2d2;
+}
+
+.table-header {
+    font-size: 16px;
+    font-family: "Noto Sans KR Thin";
+}
+
+.td-number, .td-date {
+    width:10rem;
+    font-family: "Noto Sans KR Thin";
+}
+
+.td-title {
+    width: 50rem;
+    font-family: "Noto Sans KR Thin";
+}
+
+.cntnt-num, .cntnt-date {
+    font-size: 15px;
+    font-family: "Noto Sans KR Thin";
+    text-align: center;
+}
+
+.cntnt-title {
+    font-size: 15px;
+    font-family: "Noto Sans KR Thin";
+    text-align: left;
+    padding-left: 7rem;
 }
 
 
-#list-section tr{
+/* editor - 공지사항 > 글쓰기*/
+#editor .notice-title table {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 2rem;
+}
+#editor .notice-title table th{
+    height: 30px;
+    border-left: 3px solid #88B04B;
+}
+#editor .notice-title table td{
+    height: 30px;
+}
+#editor .notice-title table input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    /*font-size: 14px;*/
+}
+#editor .editor-section {
+    margin: 2rem 0rem 1rem 0rem;
+}
+#editor #cke_editor1 {
+    width: 1050px !important;
+    height: auto !important;
+}
+#editor #cke_1_contents{
+    height: 600px !important;
+}
+#editor .btn-container{
     display: block;
-    border-bottom: 1px solid #d2d2d2;
+    margin-bottom: 2rem;
+    text-align: right;
+}
+#editor .btn-container button{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.3rem 1.5rem;
+    margin: auto 0.3rem;
+    font-size: 18px;
+}
+#editor .btn-container .cancelBtn{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #1b4b36;
+}
+#editor .btn-container .cancelBtn:hover{
+    background-color: #d8d8d8;
+}
+#editor .btn-container .okBtn{
+    background-color: #88B04B;
+    color: #fff;
+    border: none;
+}
+#editor .btn-container .okBtn:hover{
+    background-color: #779a41;
 }

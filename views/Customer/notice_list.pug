@@ -19,6 +19,7 @@ html
                     dataType: 'json',
                     async: false,
                     success: function (data) {
+                        // console.log(data);
                         ret = data;
                     }
                 });
@@ -27,23 +28,51 @@ html
             }
         }
         var pageNumber = #{pagenumber}
-        var vData = ajax.request("./notice/inqrNoticeAll", {page: pageNumber});
-        console.log(vData);
-        // console.log(vData);
 
+        // Inquire notice
+        function inqrData() {
+            vData = ajax.request("./notice/inqrNoticeAll", {page: pageNumber});
+        }
 
+        function dsplyNotices() {
+            $(vData.notice).each(function() {
+                var tBody = $("#tableBody");
+                dsplyPostRow(tBody, this);
+            });
+        }
+
+        function dsplyPostRow(body, obj) {
+            console.log(obj);
+            body.append(
+                "<tr notice_id=" + obj.NOTICE_ID + ">"
+                    + "<td class=\"td-number cntnt-num\">" + obj.ROWNUM + "</td>"
+                    + "<td class=\"td-title cntnt-title\">"  + obj.NOTICE_TITLE + "</td>"
+                    + "<td class=\"td-date cntnt-date\">" + obj.REGIST_DATE + "</td>"
+               +"</tr>"
+            );
+        }
+
+        var vData;
+        $(document).ready(function () {
+            inqrData();
+            dsplyNotices();
+        });
     body
         include ../Include/header
         .main
-            #title-section.layout-wrapper
-                h4 공지사항
-            #list-section.layout-wrapper
-                table#list-table(style='width:100%;')
-                    thead
-                        tr
-                            th(style='width:10rem;') No.
-                            th(style='width:50rem;') 제목
-                            th(style='width:10rem;') 등록일자
+            #notice-content.layout-wrapper
+                .title-section
+                    h4 공지사항
+                .regist-section
+                    a(href="./notice/new") 글쓰기 >
+                .list-section
+                    table#list-table(style='width:100%;')
+                        thead
+                            tr
+                                th.table-header.td-number No.
+                                th.table-header.td-title 제목
+                                th.table-header.td-date 등록일자
 
-                    tbody#tableBody
+                        tbody#tableBody
+
         include ../Include/footer

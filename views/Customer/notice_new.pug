@@ -2,9 +2,61 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
+        script(src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js")
+        script.
+            var ajax = {
+                /**
+                 * ajax post request를 수행하고 결과 반환
+                 */
+                request: function (url, param) {
+                    var ret = null;
 
+                    jQuery.ajax({
+                        url: url,
+                        data: param,
+                        type: 'post',
+                        dataType: 'json',
+                        async: false,
+                        success: function (data) {
+                            console.log(data);
+                            ret = data;
+                        }
+                    });
+
+                    return ret;
+                }
+            }
+
+            function saveNotice() {
+                var title = $.trim($(".title-input").val());
+                var data  = CKEDITOR.instances.editor1.getData();
+                var vData = ajax.request("./notice/regist", {title: title, content: data});
+            }
+
+            $(document).ready(function () {
+                $(".okBtn").on('click', function() {
+                    saveNotice();
+                });
+            });
     body
         include ../Include/header
         .main
-            #content
+            #editor.layout-wrapper
+                .title-section
+                    h4 새 공지 등록하기
+                .notice-title
+                    table
+                        tbody
+                            tr
+                                th 제목
+                                td
+                                    input(type="text" placeholder="공지사항의 제목을 입력해 주세요." autofocus="").title-input
+                .editor-section
+                    textarea(name="editor1")
+                    script.
+                        CKEDITOR.replace('editor1');
+                .btn-container
+                    button.cancelBtn 취소
+                    button.okBtn 완료
         include ../Include/footer

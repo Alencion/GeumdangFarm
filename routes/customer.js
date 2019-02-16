@@ -1,7 +1,12 @@
 var express = require('express');
 var router  = express.Router();
 var config = require('../config/db_config');
-var query = require('../queries/Customer/customer');
+// var query = require('../queries/Customer/customer');
+
+var nineBatis = require('../lib/nineBatis');
+var path      = require('path');
+
+nineBatis.loadQuery(path.resolve('./queries/Customer'), true);
 
 /* Customer Notice List Router. */
 router.get('/notice', function (req, res, next) {
@@ -14,15 +19,15 @@ router.get('/notice', function (req, res, next) {
 router.get('/notice/inqrNoticeAll', async(req, res, next) => {
     var page = req.query.page;
     var connect = config.createConnecion();
-    var sql = query.inqrTotalNotice;
-    var params = [(page-1)*10, 10];
-    var result = null;
+    // var sql = query.inqrTotalNotice;
+    // var params = [(page-1)*10, 10];
+    // var result = null;
 
-    connect.query(sql, params,async (err, rows, fields) => {
-        if (err) throw err;
-
-        result = rows;
-    });
+    // connect.query(sql, params,async (err, rows, fields) => {
+    //     if (err) throw err;
+    //
+    //     result = rows;
+    // });
 
     console.log("Result : " + result);
     return result;

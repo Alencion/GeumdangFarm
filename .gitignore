@@ -1,6 +1,6 @@
 .idea/
 *.iml
-*.xml
+# *.xml
 *.log
 
 node_modules/

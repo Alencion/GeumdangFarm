@@ -4,30 +4,9 @@ html
         include ../Include/headTag
         link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
         script(src="//cdn.ckeditor.com/4.11.2/full/ckeditor.js")
+        script(src="/javascripts/Include/ajax.js")
+
         script.
-            var ajax = {
-                /**
-                 * ajax post request를 수행하고 결과 반환
-                 */
-                requestGET: function (url, param) {
-                    var ret = null;
-
-                    jQuery.ajax({
-                        url: url,
-                        data: param,
-                        type: 'post',
-                        dataType: 'json',
-                        async: false,
-                        success: function (data) {
-                            console.log(data);
-                            ret = data;
-                        }
-                    });
-
-                    return ret;
-                }
-            }
-
             function saveNotice() {
                 var title = $.trim($(".title-input").val());
                 var data = CKEDITOR.instances.editor1.getData();
@@ -36,7 +15,7 @@ html
                     return false;
                 }
                 else {
-                    var vData  = ajax.request("/customer/notice/upload", {title: title, content: data});
+                    var vData  = ajax.requestPOST("/customer/notice/upload", {title: title, content: data});
                     var result = vData.result;
 
                     if (result == true) {

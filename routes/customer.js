@@ -22,7 +22,7 @@ router.get('/notice/inqrNoticeAll', (req, res, next) => {
         if (err) next(err);
 
         console.log("Result : " + JSON.stringify(rows));
-        var result = {'notice' : rows[1]}
+        var result = {'notice' : rows}
         res.send(result);
     });
 });

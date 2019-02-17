@@ -6,32 +6,10 @@ html
         script(src="/javascripts/Include/ajax.js")
 
     script.
-        var ajax = {
-            /**
-             * ajax post request를 수행하고 결과 반환
-             */
-            requestGET: function (url, param) {
-                var ret = null;
-
-                jQuery.ajax({
-                    url: url,
-                    data: param,
-                    type: 'post',
-                    dataType: 'json',
-                    async: false,
-                    success: function (data) {
-                        console.log(data);
-                        ret = data;
-                    }
-                });
-
-                return ret;
-            }
-        }
         var noticeId = #{noticeId}
 
         function inqrData() {
-            var vData = ajax.request('/customer/notice/inqrDetail', {noticeId: noticeId});
+            var vData = ajax.requestPOST('/customer/notice/inqrDetail', {noticeId: noticeId});
 
             if (failToGetData(vData)) {
                 alert("내용을 가져오는 데 실패하였습니다.\n잠시 후 다시 시도해 주시기 바랍니다.");
@@ -71,7 +49,7 @@ html
         $(document).ready(function () {
             inqrData();
         });
-        
+
     body
         include ../Include/header
         .main

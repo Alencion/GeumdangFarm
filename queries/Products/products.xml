@@ -2,18 +2,31 @@
 <query>
     <select id="inqrTotalProducts">
         SET @rownum:=${start};
-        SELECT @rownum:=@rownum+1 ROWNUM, PRDCT.*
-        FROM ITEM_LIST PRDCT
-        ORDER BY REGIST_DATE DESC
-        LIMIT ${offset},${limit}
+        SELECT @rownum:=@rownum+1 ROWNUM
+        , PRDCT.*
+        , TOTAL.TOTAL TOTAL_PAGE
+        FROM (
+            SELECT ITEM_ID
+            , ITEM_NAME
+            , ITEM_PRICE
+            , ITEM_DESC
+            , ITEM_PHOTO
+            FROM ITEM_LIST
+            ORDER BY REGIST_DATE DESC
+        ) PRDCT
+        , (
+            SELECT CEILING(COUNT(*)/10) TOTAL
+            FROM ITEM_LIST
+        ) TOTAL
+        LIMIT ${start}, ${limit};
     </select>
-    <select id="inqrProductCount">
-        SELECT COUNT(ITEM_ID) AS COUNT
-        FROM ITEM_LIST
-    </select>
+
     <select id="inqrProductDetail">
-        SELECT *
-          FROM ITEM_LIST
-        WHERE ITEM_LIST.ITEM_ID = ${item_id}
+        CALL PRDCT_DTL(
+            ${item_id},
+            ${review_rownum},
+            ${customer_rownum}
+        )
     </select>
+
 </query>

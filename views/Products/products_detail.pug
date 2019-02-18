@@ -3,10 +3,21 @@ html
     head
         include ../Include/headTag
         link(rel="stylesheet", href="/stylesheets/Products/products_detail.css")
+        script(src="/javascripts/Include/ajax.js")
+        script(src="/javascripts/Products/products_detail.js")
 
     body
         include ../Include/header
         include products_detail_mixin
+        script.
+            $(document).ready(function(){
+                getProductDetail(#{item_id});
+                paging();
+                getReviewList(#{review});
+                getcustomerList(#{customer});
+                pageReload();
+            })
+
         #content
             .products_detail
                 #products-summary-wrapper
@@ -14,22 +25,22 @@ html
                         img(src="#")
                     .products
                         .products-header
-                            h3.name #{ITEM_NAME}
-                            p.desc #{ITEM_DESC}
+                            h3.name
+                            p.desc
                         .products-form-table-wrapper
                             table.products-form-table
                                 tr
                                     th.products-form-table-heading 판매가
-                                    td.products-form-table-cell #{ITEM_PRICE}
+                                    td.products-form-table-cell.price
                                 tr
                                     th.products-form-table-heading 판매 단위
-                                    td.products-form-table-cell #{SELL_UNIT}
+                                    td.products-form-table-cell.sell-unit
                                 tr
                                     th.products-form-table-heading 중량/용량
-                                    td.products-form-table-cell #{ITEM_WEIGHT}
+                                    td.products-form-table-cell.weight
                                 tr
                                     th.products-form-table-heading 배송 구분
-                                    td.products-form-table-cell #{DELIVER_TYPE}
+                                    td.products-form-table-cell.deliver
                                 tr
                                     th.products-form-table-heading 구매 수량
                                     td.products-form-table-cell
@@ -43,21 +54,11 @@ html
                         .products-btn-wrapper
                             button.buybtn 구매하기
                             button.cartbtn 장바구니
+
                 #products-detail-section
                     +products-detail-header("detail-decs")
                     .products-detail-desc
-                        .desc
-                            |Lorem Ipsum is simply dummy text of the printing
-                            |and typesetting industry. Lorem Ipsum has been the
-                            |industry's standard dummy text ever since the 1500s,
-                            |when an unknown printer took a galley of type and
-                            |scrambled it to make a type specimen book. It has
-                            |survived not only five centuries, but also the leap
-                            |into electronic typesetting, remaining essentially
-                            |unchanged. It was popularised in the 1960s with the
-                            |release of Letraset sheets containing Lorem Ipsum passages,
-                            |and more recently with desktop publishing software like Aldus
-                            |PageMaker including versions of Lorem Ipsum.
+                        .desc 상품 자세한 설명
                     +products-detail-header("review-table")
                     .products-review
                         .products-section-header
@@ -69,23 +70,18 @@ html
                                         th No.
                                         th.title 제목
                                         th 만족도
+                                        th 조회수
                                         th 작성자
                                         th 등록일
-                                tbody
-                                    tr
-                                        td 1
-                                        td.title
-                                            a(href="#") 땅두릅
-                                        td 5
-                                        td 이정준
-                                        td 2019-02-13
-                                    tr
-                                        td 1
-                                        td.title
-                                            a(href="#") 땅두릅
-                                        td 5
-                                        td 이정준
-                                        td 2019-02-13
+                                tbody.review-list
+
+                        #reviewPagination.pagination
+                            button.first-paging-button first
+                            button.prev-paging-button <
+                            ul.reviewPaging.paging
+                            button.next-paging-button >
+                            button.last-paging-button last
+
                         .products-section-pagination-wrapper
 
                     +products-detail-header("customer-table")
@@ -99,22 +95,17 @@ html
                                         th No.
                                         th 문의 유형
                                         th.title 제목
+                                        th 조회수
                                         th 작성자
                                         th 등록일
-                                tbody
-                                    tr
-                                        td 1
-                                        td 배송
-                                        td.title
-                                            a(href="#") 땅두릅
-                                        td 이정준
-                                        td 2019-02-13
-                                    tr
-                                        td 1
-                                        td 상품
-                                        td.title
-                                            a(href="#") 땅두릅
-                                        td 이정준
-                                        td 2019-02-13
+                                tbody.customer-list
+
+                        #customerPagination.pagination
+                            button.first-paging-button first
+                            button.prev-paging-button <
+                            ul.customerPaging.paging
+                            button.next-paging-button >
+                            button.last-paging-button last
+
                         .products-section-pagination-wrapper
         include ../Include/footer

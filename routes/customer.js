@@ -6,7 +6,7 @@ nineBatis.loadQuery(path.resolve('./queries/Customer'), true);
 
 /* Customer Notice List Router. */
 router.get('/notice', function (req, res, next) {
-    // console.log(req);
+    console.log(req);
     res.render('Customer/notice_list.pug', {
         pagenumber: req.query.page
     });

@@ -3,7 +3,7 @@ var ajax = {
         var ret = null;
         jQuery.ajax({
             url: url,
-            data: {data : param},
+            data: param,
             dataType: 'json',
             type: 'GET',
             async: false,
@@ -17,7 +17,7 @@ var ajax = {
         var ret = null;
         jQuery.ajax({
             url: url,
-            data: {data : param},
+            data: param,
             dataType: 'json',
             type: 'POST',
             async: false,

@@ -5,33 +5,11 @@ html
         link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
 
     script.
-        var ajax = {
-            /**
-             * ajax post request를 수행하고 결과 반환
-             */
-            requestGET: function (url, param) {
-                var ret = null;
-
-                jQuery.ajax({
-                    url: url,
-                    data: param,
-                    type: 'get',
-                    dataType: 'json',
-                    async: false,
-                    success: function (data) {
-                        // console.log(data);
-                        ret = data;
-                    }
-                });
-
-                return ret;
-            }
-        }
         var pageNumber = #{pagenumber}
 
         // Inquire notice
         function inqrData() {
-            vData = ajax.request("/customer/notice/inqrNoticeAll", {page: pageNumber});
+            vData = ajax.requestGET("/customer/notice/inqrNoticeAll", {page: pageNumber});
         }
 
         function dsplyNotices() {

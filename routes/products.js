@@ -17,6 +17,7 @@ router.get('/', function (req, res, next) {
 router.get('/list', function (req, res, next) {
     var page = req.query.page;
     var query = nineBatis.getQuery('inqrTotalProducts',{start:(page-1)*10, limit:10});
+
     connect.query(query, function (err, result) {
         res.send({result:result[1]});
     });

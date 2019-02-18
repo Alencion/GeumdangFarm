@@ -3,47 +3,8 @@ html
     head
         include ../Include/headTag
         link(rel='stylesheet', href='/stylesheets/Customer/notice.css')
+        script(src="/javascripts/Include/ajax.js")
 
-    script.
-        var pageNumber = #{pagenumber}
-
-        // Inquire notice
-        function inqrData() {
-            vData = ajax.requestGET("/customer/notice/inqrNoticeAll", {page: pageNumber});
-        }
-
-        function dsplyNotices() {
-            $(vData.notice).each(function() {
-                var tBody = $("#tableBody");
-                dsplyPostRow(tBody, this);
-            });
-        }
-
-        function dsplyPostRow(body, obj) {
-            console.log(obj);
-
-            var tr = document.createElement("tr");
-            $(tr).attr("notice_id", obj.NOTICE_ID);
-            $(tr).append(
-                "<td class=\"td-number cntnt-num\">" + obj.ROWNUM + "</td>"
-                + "<td class=\"td-title cntnt-title\">" + obj.NOTICE_TITLE + "</td>"
-                + "<td class=\"td-date cntnt-date\">" + obj.REGIST_DATE + "</td>"
-            );
-
-            body.append(tr);
-
-            $(tr).on('click', function(){
-                var noticeId = $.trim($(this).attr('notice_id'));
-                window.location.href = "/customer/notice/detail?noticeId=" + noticeId;
-            });
-
-        }
-
-        var vData;
-        $(document).ready(function () {
-            inqrData();
-            dsplyNotices();
-        });
     body
         include ../Include/header
         .main
@@ -62,4 +23,144 @@ html
 
                         tbody#tableBody
 
+                #pagination
+                    button.first-paging-button first
+                    button.prev-paging-button <
+                    ul.paging
+                    button.next-paging-button >
+                    button.last-paging-button last
+
         include ../Include/footer
+
+    script.
+        var pageNumber = #{pagenumber}
+
+        // Inquire notice
+        function inqrData(page) {
+            page = typeof page !== 'undefined' ? page : pageNumber;
+            vData = ajax.requestGET("/customer/notice/inqrNoticeAll", {page: page});
+        }
+
+        // Function for pagenation
+        var activePage;
+        function dsplyPages(start) {
+            start = typeof start !== 'undefined' ? start : 1;
+            var paging  = $(".paging");
+            $(paging).html("");
+
+            activePage = start;
+            var maxPage = vData['notice'][0].TOTAL_PAGE;
+            for(var i=0; i<3; i++) {
+                if (start <= 0) {
+                    start++;
+                    continue;
+                }
+                if (start > maxPage) {
+                    break;
+                }
+
+                $(paging).append(
+                    "<li>" +
+                    "<button class=\"pageBtn\" onclick=\"inqrNotice(" + start + ")\" value=\"" + start + "\">" + start + "</button>" +
+                    "</li>"
+                );
+                start++
+            }
+
+            $(".pageBtn").each(function () {
+                $(this).removeClass("active");
+            });
+
+            $("button[value="+ activePage +"]").addClass("active");
+        }
+
+        // Called when a pagenation button is clicked
+        function inqrNotice(page) {
+            activePage = page;
+            vData      = ajax.requestGET("/customer/notice/inqrNoticeAll", {page: page});
+            dsplyNotices();
+
+            $(".pageBtn").each(function () {
+                $(this).removeClass("active");
+            });
+            $("button[value=" + page + "]").addClass("active");
+        }
+
+        // Function for displaying notices
+        function dsplyNotices() {
+            var tBody = $("#tableBody");
+
+            //Reset list
+            tBody.html("");
+
+            $(vData.notice).each(function(idx) {
+                dsplyPostRow(tBody, this, idx+1);
+            });
+        }
+
+        // Print out each row of notice list
+        function dsplyPostRow(body, obj, idx) {
+            console.log(obj);
+
+            var tr  = document.createElement("tr");
+            $(tr).attr("notice_id", obj.NOTICE_ID);
+            $(tr).append(
+                "<td class=\"td-number cntnt-num\">" + parseInt((activePage-1)*10+idx) + "</td>"
+                + "<td class=\"td-title cntnt-title\">" + obj.NOTICE_TITLE + "</td>"
+                + "<td class=\"td-date cntnt-date\">" + obj.REGIST_DATE + "</td>"
+            );
+
+            body.append(tr);
+
+            $(tr).on('click', function(){
+                var noticeId = $.trim($(this).attr('notice_id'));
+                window.location.href = "/customer/notice/detail?noticeId=" + noticeId;
+            });
+
+        }
+
+        function moveToFirst() {
+            inqrData();
+            dsplyPages();
+            dsplyNotices();
+        }
+
+        function moveToLast() {
+            var maxPage = vData['notice'][0].TOTAL_PAGE;
+            inqrData(maxPage);
+            dsplyPages(maxPage-2);
+
+            activePage = maxPage;
+            $(".pageBtn").each(function () {
+                $(this).removeClass("active");
+            });
+
+            $("button[value=" + activePage + "]").addClass("active");
+
+            dsplyNotices();
+        }
+
+        function moveToPrev() {
+            var currentPage = $('.active').val();
+            if (currentPage-1 > 0) {
+                inqrData(currentPage - 1);
+                dsplyPages(currentPage - 1);
+                dsplyNotices();
+            }
+        }
+
+        function moveToNext() {
+
+        }
+
+        var vData;
+        $(document).ready(function () {
+            inqrData();
+            dsplyPages();
+            dsplyNotices();
+
+            $(".first-paging-button").on('click', function() { moveToFirst(); });
+            $(".last-paging-button" ).on('click', function() { moveToLast();  });
+            $(".prev-paging-button" ).on('click', function() { moveToPrev();  });
+            $(".next-paging-button" ).on('click', function() { moveToNext();  });
+        });

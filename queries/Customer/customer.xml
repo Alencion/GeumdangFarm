@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <query>
     <select id="inqrTotalNotice">
-        SET @rownum:=${start};
-        SELECT @rownum:=@rownum+1  ROWNUM
-             , NTCE.NOTICE_ID
+        SELECT NOTICE_ID
              , DATE_FORMAT(REGIST_DATE, '%Y-%m-%d %H:%i:%s') REGIST_DATE
-             , NTCE.WRITER
-             , NTCE.NOTICE_TITLE
-             , NTCE.NOTICE_CONTENT
-          FROM NOTICE NTCE
-         ORDER BY REGIST_DATE DESC
-         LIMIT ${limit};
+             , WRITER
+             , NOTICE_TITLE
+             , NOTICE_CONTENT
+             , TOTAL.TOTAL TOTAL_PAGE
+          FROM NOTICE
+             , (SELECT CEILING(COUNT(*)/10) TOTAL FROM NOTICE) TOTAL
+         ORDER BY REGIST_DATE DESC, NOTICE_TITLE
+          LIMIT ${start}, ${limit};
     </select>
 
     <insert id="rgstNewNotice">

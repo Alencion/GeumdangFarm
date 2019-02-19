@@ -1,5 +1,7 @@
 var express    = require('express');
 var router     = express.Router();
+var db = require('../config/db_config');
+var connect = db.connect;
 
 var nineBatis  = require('../lib/nineBatis');
 nineBatis.loadQuery(path.resolve('./queries/Customer'), true);
@@ -15,7 +17,6 @@ router.get('/notice', function (req, res, next) {
 router.get('/notice/inqrNoticeAll', (req, res, next) => {
 
     var page = req.query.page;
-    var connect = config.connect;
     var sql    = nineBatis.getQuery('inqrTotalNotice', {start: (page-1)*10, limit: 10});
 
     connect.query(sql, (err, rows, fields) => {

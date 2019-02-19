@@ -3,7 +3,6 @@ html
     head
         include ../Include/headTag
         link(rel="stylesheet", href="/stylesheets/Products/products_detail.css")
-        script(src="/javascripts/Include/ajax.js")
         script(src="/javascripts/Products/products_detail.js")
 
     body
@@ -16,6 +15,10 @@ html
                 getReviewList(#{review});
                 getcustomerList(#{customer});
                 pageReload();
+                $('.amount').change(function () {
+                    totalPrice();
+                })
+                totalPrice();
             })
 
         #content
@@ -44,12 +47,12 @@ html
                                 tr
                                     th.products-form-table-heading 구매 수량
                                     td.products-form-table-cell
-                                        button -
-                                        input(value='1' size=2)
-                                        button +
+                                        button(onclick="amountDown()") -
+                                        input.amount(value='1' size=2)
+                                        button(onclick="amountUp()") +
                         .products-total-price
                             | 총 상품 가격은 :&nbsp;
-                            span 20,000
+                            span
                             |원
                         .products-btn-wrapper
                             button.buybtn 구매하기
@@ -58,7 +61,7 @@ html
                 #products-detail-section
                     +products-detail-header("detail-decs")
                     .products-detail-desc
-                        .desc 상품 자세한 설명
+                        .desc
                     +products-detail-header("review-table")
                     .products-review
                         .products-section-header

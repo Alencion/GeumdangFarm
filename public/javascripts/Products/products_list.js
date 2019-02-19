@@ -17,7 +17,6 @@ function getProduct(param){
     count = productList[0].TOTAL_PAGE;
     var pageHTML = "";
     $.each(productList, function ( index, value) {
-        console.log(value);
         pageHTML += "<li>\n" +
             "<div class=\"products_item\">\n" +
             "<div class=\"thumb\"><a href=\"/products/detail?id="+value.ITEM_ID+

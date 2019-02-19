@@ -1,0 +1,65 @@
+#new .product_new-header{
+    padding: 45px 0 0 15px;
+}
+#new .product_new-header:after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+    display: block;
+    position: relative;
+    top: -5px;
+}
+#new .product_new-header h3{
+    border-left: 5px solid #88B04B;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+#new #products-summary-wrapper .products_image{
+    width: 370px;
+}
+#new #products-summary-wrapper .products_image .img{
+    margin: 40px 40px 20px;
+    height: 600px;
+}
+#new #products-summary-wrapper .products input{
+    border: none;
+    width: 250px;
+    height: 25px;
+    font-family: "Noto Sans kr";
+    padding-left: 10px;
+}
+#new #products-summary-wrapper .products-header .name{
+    display: block;
+    font-weight: bold;
+    height: 40px;
+    font-size: 1.5rem;
+}
+#new #products-summary-wrapper .products-header .desc{
+    font-size: 14px;
+    font-family: "Noto Sans KR Thin";
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+#new #products-summary-wrapper .products-form-table .products-form-table-cell{
+    text-align: center;
+}
+#new #products-summary-wrapper .products-form-table-cell select{
+    width: 100px;
+    border: none;
+}
+#new .regist-product-btn{
+    text-align: center;
+}
+#new .regist-product-btn button{
+    margin: 50px 0 0 100px;
+    background-color: #88B04B;
+    border: none;
+    color: #fff;
+    width: 200px;
+    padding: 10px;
+    font-family: 'Noto Sans KR Medium';
+}
+#new .regist-product-btn button:hover{
+    background-color: #779a41;
+}

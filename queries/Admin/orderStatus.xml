@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query>
+    <!-- 주문현황 리스트 가져오는 쿼리-->
+    <select id="inqrOrderStatusList">
+        SET @rownum:=${start};
+        SELECT @rownum:=@rownum+1 ROWNUM
+        , PRDCT.ITEM_PHOTO
+        , PRDCT.ITEM_NAME
+        , RDR_LST.ORDER_CT_NAME
+        , RDR_LST.ORDER_CT_PHONE
+        , RDR_LST.ORDER_AMOUNT
+        , PRDCT.ITEM_PRICE
+        , RDR_LST.ORDER_DATE
+        , RDR_LST.DEPOSIT_STATUS
+        , TOTAL.TOTAL TOTAL_PAGE
+        FROM ORDER_LIST RDR_LST, ITEM_LIST PRDCT, (
+        SELECT CEILING(COUNT(*)/20) TOTAL FROM ORDER_LIST) TOTAL
+        WHERE RDR_LST.ITEM_ID = PRDCT.ITEM_ID
+        ORDER BY RDR_LST.ORDER_DATE DESC
+        LIMIT ${start},20;
+    </select>
+
+</query>

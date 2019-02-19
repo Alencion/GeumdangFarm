@@ -19,6 +19,9 @@
     z-index: 400;
     float: left;
 }
+/*#userMenu .menu:hover .link_menu{*/
+    /*text-decoration: underline;*/
+/*}*/
 #userMenu .menu:after {
     content: "";
     float: right;

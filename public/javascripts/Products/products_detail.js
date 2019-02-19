@@ -1,5 +1,6 @@
 var review= null;
 var customer= null;
+var productDetail =null;
 
 var reviewCount= null;
 var customerCount= null;
@@ -22,7 +23,7 @@ function paging(){
 }
 function getProductDetail(item_id){
     var productList = ajax.requestGET('/products/productDetail',{item_id: item_id}).result;
-    var productDetail = productList[0][0];
+    productDetail = productList[0][0];
     review = productList[1];
     customer = productList[2];
     reviewCount = review[0].TOTAL_PAGE;
@@ -71,7 +72,6 @@ function getcustomerList(param) {
     var value = null;
     for(var i = index; i < index + 10 && i < customer[0].TOTALCOUNT; i++){
         value = customer[i];
-        console.log(value);
         customerPageHTML += "" +
             "<tr>\n" +
             "     <td>"+value.ROWNUM+"</td>\n" +
@@ -94,6 +94,25 @@ function getcustomerList(param) {
 function pageReload(){
     history.pushState(item_id, null, "/products/detail?id="+item_id+"&review="+reviewPage+"&customer="+customerPage);
 }
+function amountUp(){
+    $('.amount').attr("value", parseInt($('.amount').val())+1);
+    totalPrice()
+}
+function amountDown(){
+    if(parseInt($('.amount').val()) > 0){
+        $('.amount').attr("value", parseInt($('.amount').val())-1);
+        totalPrice();
+    }
+}
+function totalPrice(){
+    var price = parseInt($('.amount').val()) * productDetail.ITEM_PRICE;
+    $('.products-total-price span').text(addComma(price));
+}
+function addComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+}
+
 $(function(){
     $('#reviewPagination .first-paging-button').click(
         function (){

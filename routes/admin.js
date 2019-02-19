@@ -1,9 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
+
+var nineBatis = require('../lib/nineBatis');
+
+nineBatis.loadQuery( path.resolve("./queries/Admin"), true);
 
 /* Admin OrderStatus Router. */
 router.get('/orderStatus', function (req, res, next) {
-    res.render('Admin/orderStatus.pug');
+    res.render('Admin/orderStatus.pug',{page:req.query.page});
+});
+router.get('/getOrderList', function (req, res, next) {
+    var connect = config.connect;
+    var page = req.query.page;
+    var query = nineBatis.getQuery('inqrOrderStatusList',{start:(page-1)*10});
+    connect.query(query, function (err, result) {
+        res.send(result[1]);
+    });
 });
 router.post('/orderStatus', function (req, res, next) {
     res.send('Admin OrderStatus Post Page 이다.');

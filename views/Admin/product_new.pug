@@ -2,9 +2,64 @@ doctype html
 html
     head
         include ../Include/headTag
-
+        link(rel="stylesheet", href="/stylesheets/Products/products_detail.css")
+        link(rel="stylesheet", href="/stylesheets/Admin/product_new.css")
+        script(src="//cdn.ckeditor.com/4.11.2/full/ckeditor.js")
     body
         include ../Include/header
+
         .main
             #content
+                #new.products_detail
+                    .product_new-header
+                        h3 상품 등록하기
+                    form(method="post")
+                        #products-summary-wrapper
+                            .products_image
+                                img(src="")
+                            .products
+                                .products-header
+                                    input.name(type="text" placeholder="제목" name="item_name" autofocus)
+                                    input.desc(type="text" placeholder="상품 요약 설명" name="item_desc")
+                                .products-form-table-wrapper
+                                    table.products-form-table
+                                        tr
+                                            th.products-form-table-heading 판매가
+                                            td.products-form-table-cell.price
+                                                input.name(type="text" placeholder="가격을 입력해주세요." name="item_price")
+                                        tr
+                                            th.products-form-table-heading 판매 단위
+                                            td.products-form-table-cell.sell-unit
+                                                select(name="sell-unit")
+                                                    option(value='' selected) 선택
+                                                    option(value='1') 1 box
+                                                    option(value='2') 1 묶음
+                                                    option(value='3') 1 개
+                                        tr
+                                            th.products-form-table-heading 중량/용량
+                                            td.products-form-table-cell.weight
+                                                input.name(type="text" placeholder="g 단위로 적어주세요." name="item_weight")
+                                        tr
+                                            th.products-form-table-heading 배송 구분
+                                            td.products-form-table-cell.deliver
+                                                select(name="deliver-type")
+                                                    option(value='' selected) 선택
+                                                    option(value='1') 택배배송
+                                                    option(value='2') 직접방문
+
+                        #products-detail-section
+                            .products-detail-header()
+                                ul
+                                    li
+                                        a.active 상품 설명
+                                    li
+                                        a 고객 후기
+                                    li
+                                        a 상품 문의
+                            .editor-section
+                                textarea(name="productDetail")
+                                script.
+                                    CKEDITOR.replace('productDetail');
+                        .regist-product-btn
+                            button(type="submit") 등록
         include ../Include/footer

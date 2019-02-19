@@ -11,3 +11,10 @@
 #nav-side-menu-bar-wrapper .nav-side-menu-header h4{
     padding-bottom: 20px;
 }
+#nav-side-menu-bar-wrapper .menu-wrapper li{
+    padding-top: 20px;
+}
+#nav-side-menu-bar-wrapper .menu-wrapper li a{
+    font-size: 14px;
+    color: #3b3b3b;
+}

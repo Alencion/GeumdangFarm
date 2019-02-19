@@ -2,9 +2,30 @@ doctype html
 html
     head
         include ../Include/headTag
+        link(rel='stylesheet', href='/stylesheets/Admin/navSideMenuBar.css')
+        link(rel='stylesheet', href='/stylesheets/Admin/product.css')
 
     body
         include ../Include/header
+            script.
+                $(document).ready(function () {
+                })
         .main
             #content
-        include ../Include/footer
+                include ./nav-side-menu-bar
+
+                #product
+                    .product-header
+                        h3 상품 추가 / 제거
+                    .product-list-wrapper
+                        ul.product-list
+                            li
+                                a(href="#").item
+                                    .item-image
+                                        img(src="/images/icon/cart.png")
+                                    p.item-name 땅두릅1
+                                    p.item-desc 신선하고 맛좋은
+
+                    .product-new-btn
+                        a(href="/admin/product/new") 상품등록하기
+
